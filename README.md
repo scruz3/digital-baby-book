@@ -9,5 +9,5 @@ The Digital Baby Book is an application designed to help families save and organ
 - Custom themes
 - Timeline or playback of memories
 - Sharing access with family members
-  ## Current Spring
-  The goal of this sprint is to create the basic project structure, organize the requirements, and prepare the initial design files, 
+  ## Current Sprint
+  The goal of this sprint is to create the basic project structure, organize the requirements, and prepare the initial design files.
