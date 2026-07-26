@@ -10,4 +10,4 @@ The goal of this sprint is to organize the Digital Baby Book project, create the
 - [x] Upload the ER diagram
 - [x] Upload the persona or product vision
 - [x] Review the planned features
-- [ ] Decide the tasks for Sprint 2
+- [x] Decide the tasks for Sprint 2
