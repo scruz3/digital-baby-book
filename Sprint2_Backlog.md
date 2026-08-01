@@ -4,9 +4,9 @@ The goal of Sprint 2 is to begin developing the basic structure of the Digital B
 
 # Sprint 2 Backlog
 
-- [ ] Review and improve the wireframes
+- [x] Review and improve the wireframes
 - [x] Organize the database entities and relationships
-- [ ] Create the basic project folders and files
+- [x] Create the basic project folders and files
 - [x] Begin designing the home page
 - [x] Begin creating the child profile page
-- [ ] Upload all new work to GitHub
+- [x] Upload all new work to GitHub
