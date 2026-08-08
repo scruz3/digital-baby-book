@@ -23,3 +23,18 @@ During Sprint 2, I created a basic home page for the Digital Baby Book. I also a
 - [x] Organize project files
 - [x] Update project documentation
 - [ ] Add more design and functionality
+
+      ## Sprint 3 Progress
+
+During Sprint 3, I focused on improving the Digital Baby Book and adding more working features.
+
+### Completed
+- Improved the design of the home page.
+- Added working navigation to the Milestones page.
+- Created a Milestones page.
+- Added a milestone form.
+- Added fields for milestone title, date, description, and photo.
+
+### Still in Progress
+- Additional menu pages such as Photos, Videos, and Family Members.
+- Saving milestone information permanently.
