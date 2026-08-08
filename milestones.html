@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Milestones</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f2dede;
+            padding: 30px;
+        }
+
+        form {
+            width: 400px;
+            margin: 30px auto;
+            text-align: left;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Milestones</h1>
+        <p>Add and save important childhood milestones.</p>
+    </header>
+
+    <form>
+
+        <label for="title">Milestone Title:</label>
+        <input type="text" id="title" name="title">
+
+        <br><br>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date">
+
+        <br><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea>
+
+        <br><br>
+
+        <label for="photo">Photo:</label>
+        <input type="file" id="photo" name="photo">
+
+        <br><br>
+
+        <button type="submit">Save Milestone</button>
+
+    </form>
+
+    <a class="home-link" href="index.html">Back to Home</a>
+
+</body>
+</html>
