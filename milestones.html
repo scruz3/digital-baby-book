@@ -22,6 +22,7 @@
 
         form {
             width: 400px;
+            max-width: 90%;
             margin: 30px auto;
             text-align: left;
             background-color: white;
@@ -48,9 +49,39 @@
             cursor: pointer;
         }
 
+        button:hover {
+            opacity: 0.8;
+        }
+
         .home-link {
             display: inline-block;
-            margin-bottom: 30px;
+            margin: 20px 0 30px;
+        }
+
+        #milestoneList {
+            width: 400px;
+            max-width: 90%;
+            margin: 30px auto;
+        }
+
+        .milestone-card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .milestone-card h3 {
+            margin-top: 0;
+        }
+
+        .milestone-photo {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            margin-top: 10px;
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -62,15 +93,15 @@
         <p>Add and save important childhood milestones.</p>
     </header>
 
-    <form>
+    <form id="milestoneForm">
 
         <label for="title">Milestone Title:</label>
-        <input type="text" id="title" name="title">
+        <input type="text" id="title" name="title" required>
 
         <br><br>
 
         <label for="date">Date:</label>
-        <input type="date" id="date" name="date">
+        <input type="date" id="date" name="date" required>
 
         <br><br>
 
@@ -80,7 +111,7 @@
         <br><br>
 
         <label for="photo">Photo:</label>
-        <input type="file" id="photo" name="photo">
+        <input type="file" id="photo" name="photo" accept="image/*">
 
         <br><br>
 
@@ -88,7 +119,54 @@
 
     </form>
 
+    <section id="milestoneList">
+        <h2>Saved Milestones</h2>
+    </section>
+
     <a class="home-link" href="index.html">Back to Home</a>
+
+    <script>
+        const milestoneForm = document.getElementById("milestoneForm");
+        const milestoneList = document.getElementById("milestoneList");
+
+        milestoneForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const title = document.getElementById("title").value;
+            const date = document.getElementById("date").value;
+            const description = document.getElementById("description").value;
+            const photo = document.getElementById("photo").files[0];
+
+            const milestoneCard = document.createElement("div");
+            milestoneCard.classList.add("milestone-card");
+
+            const milestoneTitle = document.createElement("h3");
+            milestoneTitle.textContent = title;
+
+            const milestoneDate = document.createElement("p");
+            milestoneDate.innerHTML = "<strong>Date:</strong> " + date;
+
+            const milestoneDescription = document.createElement("p");
+            milestoneDescription.textContent = description;
+
+            milestoneCard.appendChild(milestoneTitle);
+            milestoneCard.appendChild(milestoneDate);
+            milestoneCard.appendChild(milestoneDescription);
+
+            if (photo) {
+                const image = document.createElement("img");
+                image.src = URL.createObjectURL(photo);
+                image.alt = title;
+                image.classList.add("milestone-photo");
+
+                milestoneCard.appendChild(image);
+            }
+
+            milestoneList.appendChild(milestoneCard);
+
+            milestoneForm.reset();
+        });
+    </script>
 
 </body>
 </html>
