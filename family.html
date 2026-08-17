@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Family Members</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f2dede;
+            padding: 30px;
+        }
+
+        .family-section {
+            width: 400px;
+            max-width: 90%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 80px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        #familyList {
+            width: 400px;
+            max-width: 90%;
+            margin: 30px auto;
+        }
+
+        .family-card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .family-card h3 {
+            margin-top: 0;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Family Members</h1>
+        <p>Add important family members to the baby book.</p>
+    </header>
+
+    <div class="family-section">
+
+        <h2>Add Family Member</h2>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name">
+
+        <br><br>
+
+        <label for="relationship">Relationship:</label>
+        <input type="text" id="relationship">
+
+        <br><br>
+
+        <label for="notes">Notes:</label>
+        <textarea id="notes"></textarea>
+
+        <button id="addFamilyButton">Add Family Member</button>
+
+    </div>
+
+    <section id="familyList">
+        <h2>Family Members</h2>
+    </section>
+
+    <a class="home-link" href="index.html">Back to Home</a>
+
+    <script>
+        const addFamilyButton = document.getElementById("addFamilyButton");
+        const familyList = document.getElementById("familyList");
+
+        addFamilyButton.addEventListener("click", function() {
+
+            const name = document.getElementById("name").value;
+            const relationship = document.getElementById("relationship").value;
+            const notes = document.getElementById("notes").value;
+
+            if (name && relationship) {
+
+                const familyCard = document.createElement("div");
+                familyCard.classList.add("family-card");
+
+                const familyName = document.createElement("h3");
+                familyName.textContent = name;
+
+                const familyRelationship = document.createElement("p");
+                familyRelationship.innerHTML =
+                    "<strong>Relationship:</strong> " + relationship;
+
+                const familyNotes = document.createElement("p");
+                familyNotes.textContent = notes;
+
+                familyCard.appendChild(familyName);
+                familyCard.appendChild(familyRelationship);
+                familyCard.appendChild(familyNotes);
+
+                familyList.appendChild(familyCard);
+
+                document.getElementById("name").value = "";
+                document.getElementById("relationship").value = "";
+                document.getElementById("notes").value = "";
+            }
+
+        });
+    </script>
+
+</body>
+</html>
