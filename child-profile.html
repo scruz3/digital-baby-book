@@ -3,20 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Child Profile</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f2dede;
+            padding: 30px;
+        }
+
+        .profile-card {
+            width: 400px;
+            max-width: 90%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .profile-card p {
+            padding: 8px 0;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Child Profile</h1>
 
-    <p>This page will store information about the child.</p>
+    <header>
+        <h1>Child Profile</h1>
+        <p>View important information about your child.</p>
+    </header>
 
-    <h2>Profile Information</h2>
+    <div class="profile-card">
 
-    <p>Name:</p>
-    <p>Birthday:</p>
-    <p>Age:</p>
-    <p>Favorite Things:</p>
+        <h2>Profile Information</h2>
 
-    <a href="index.html">Back to Home</a>
+        <p><strong>Name:</strong> Not entered yet</p>
+
+        <p><strong>Birthday:</strong> Not entered yet</p>
+
+        <p><strong>Age:</strong> Not entered yet</p>
+
+        <p><strong>Favorite Things:</strong> Not entered yet</p>
+
+    </div>
+
+    <a class="home-link" href="index.html">Back to Home</a>
+
 </body>
 </html>
