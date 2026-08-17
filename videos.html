@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Videos</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f2dede;
+            padding: 30px;
+        }
+
+        .video-section {
+            width: 400px;
+            max-width: 90%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        input {
+            margin: 15px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        #videoGallery {
+            margin-top: 25px;
+        }
+
+        .video-item {
+            margin-bottom: 20px;
+        }
+
+        .video-item video {
+            width: 100%;
+            max-height: 300px;
+            border-radius: 8px;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Videos</h1>
+        <p>Add and view favorite childhood videos.</p>
+    </header>
+
+    <div class="video-section">
+
+        <h2>Add a Video</h2>
+
+        <input type="file" id="videoInput" accept="video/*">
+
+        <br>
+
+        <button id="addVideoButton">Add Video</button>
+
+        <div id="videoGallery">
+            <h2>Video Gallery</h2>
+        </div>
+
+    </div>
+
+    <a class="home-link" href="index.html">Back to Home</a>
+
+    <script>
+        const videoInput = document.getElementById("videoInput");
+        const addVideoButton = document.getElementById("addVideoButton");
+        const videoGallery = document.getElementById("videoGallery");
+
+        addVideoButton.addEventListener("click", function() {
+
+            const video = videoInput.files[0];
+
+            if (video) {
+
+                const videoItem = document.createElement("div");
+                videoItem.classList.add("video-item");
+
+                const videoPlayer = document.createElement("video");
+                videoPlayer.src = URL.createObjectURL(video);
+                videoPlayer.controls = true;
+
+                videoItem.appendChild(videoPlayer);
+                videoGallery.appendChild(videoItem);
+
+                videoInput.value = "";
+            }
+
+        });
+    </script>
+
+</body>
+</html>
