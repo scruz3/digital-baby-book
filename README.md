@@ -38,3 +38,38 @@ During Sprint 3, I focused on improving the Digital Baby Book and adding more wo
 ### Still in Progress
 - Additional menu pages such as Photos, Videos, and Family Members.
 - Saving milestone information permanently.
+
+
+## Sprint 4
+
+### Sprint Goal
+
+The goal of Sprint 4 was to continue adding working features to the Digital Baby Book and improve the user experience.
+
+### Completed Tasks
+
+- Made the Photos button work.
+- Made the Videos button work.
+- Made the Family Members button work.
+- Created basic pages for Photos, Videos, and Family Members.
+- Improved the Milestones page.
+- Added the ability to display entered milestone information.
+- Added basic photo upload and display functionality.
+- Added basic video upload and playback functionality.
+- Added the ability to enter and display family member information.
+- Improved the Child Profile page.
+- Improved overall navigation and page design.
+
+### Sprint 4 Reflection
+
+This sprint went pretty well because I was able to add more working features instead of only having placeholder buttons. I also made the pages more consistent so the application feels more connected. The milestone, photo, video, and family member pages now allow the user to interact with the application more.
+
+One thing I would improve next is saving the information after the page is refreshed. Right now, most of the information is only displayed during the current session.
+
+### Next Steps
+
+- Save milestone information permanently.
+- Save photos and videos.
+- Allow users to edit or delete saved information.
+- Continue improving the design.
+- Add more functionality to the Child Profile page.
