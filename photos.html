@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Photos</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f2dede;
+            padding: 30px;
+        }
+
+        .photo-section {
+            width: 400px;
+            max-width: 90%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        input {
+            margin: 15px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        #photoGallery {
+            margin-top: 25px;
+        }
+
+        .photo-item {
+            margin-bottom: 20px;
+        }
+
+        .photo-item img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Photos</h1>
+        <p>Add and view favorite childhood photos.</p>
+    </header>
+
+    <div class="photo-section">
+
+        <h2>Add a Photo</h2>
+
+        <input type="file" id="photoInput" accept="image/*">
+
+        <br>
+
+        <button id="addPhotoButton">Add Photo</button>
+
+        <div id="photoGallery">
+            <h2>Photo Gallery</h2>
+        </div>
+
+    </div>
+
+    <a class="home-link" href="index.html">Back to Home</a>
+
+    <script>
+        const photoInput = document.getElementById("photoInput");
+        const addPhotoButton = document.getElementById("addPhotoButton");
+        const photoGallery = document.getElementById("photoGallery");
+
+        addPhotoButton.addEventListener("click", function() {
+
+            const photo = photoInput.files[0];
+
+            if (photo) {
+
+                const photoItem = document.createElement("div");
+                photoItem.classList.add("photo-item");
+
+                const image = document.createElement("img");
+                image.src = URL.createObjectURL(photo);
+                image.alt = "Baby book photo";
+
+                photoItem.appendChild(image);
+                photoGallery.appendChild(photoItem);
+
+                photoInput.value = "";
+            }
+
+        });
+    </script>
+
+</body>
+</html>
