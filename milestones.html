@@ -126,47 +126,101 @@
     <a class="home-link" href="index.html">Back to Home</a>
 
     <script>
-        const milestoneForm = document.getElementById("milestoneForm");
-        const milestoneList = document.getElementById("milestoneList");
+    const milestoneForm = document.getElementById("milestoneForm");
+    const milestoneList = document.getElementById("milestoneList");
 
-        milestoneForm.addEventListener("submit", function(event) {
-            event.preventDefault();
+    // Load previously saved milestones when the page opens
+    let milestones = JSON.parse(localStorage.getItem("milestones")) || [];
 
-            const title = document.getElementById("title").value;
-            const date = document.getElementById("date").value;
-            const description = document.getElementById("description").value;
-            const photo = document.getElementById("photo").files[0];
+    function displayMilestones() {
+        // Keep the section heading, but remove old cards
+        milestoneList.innerHTML = "<h2>Saved Milestones</h2>";
 
+        milestones.forEach(function(milestone) {
             const milestoneCard = document.createElement("div");
             milestoneCard.classList.add("milestone-card");
 
             const milestoneTitle = document.createElement("h3");
-            milestoneTitle.textContent = title;
+            milestoneTitle.textContent = milestone.title;
 
             const milestoneDate = document.createElement("p");
-            milestoneDate.innerHTML = "<strong>Date:</strong> " + date;
+            milestoneDate.innerHTML =
+                "<strong>Date:</strong> " + milestone.date;
 
             const milestoneDescription = document.createElement("p");
-            milestoneDescription.textContent = description;
+            milestoneDescription.textContent = milestone.description;
 
             milestoneCard.appendChild(milestoneTitle);
             milestoneCard.appendChild(milestoneDate);
             milestoneCard.appendChild(milestoneDescription);
 
-            if (photo) {
+            if (milestone.photo) {
                 const image = document.createElement("img");
-                image.src = URL.createObjectURL(photo);
-                image.alt = title;
+                image.src = milestone.photo;
+                image.alt = milestone.title;
                 image.classList.add("milestone-photo");
 
                 milestoneCard.appendChild(image);
             }
 
             milestoneList.appendChild(milestoneCard);
-
-            milestoneForm.reset();
         });
-    </script>
+    }
+
+    milestoneForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const title = document.getElementById("title").value;
+        const date = document.getElementById("date").value;
+        const description = document.getElementById("description").value;
+        const photo = document.getElementById("photo").files[0];
+
+        if (photo) {
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                saveMilestone(
+                    title,
+                    date,
+                    description,
+                    event.target.result
+                );
+            };
+
+            reader.readAsDataURL(photo);
+        } else {
+            saveMilestone(
+                title,
+                date,
+                description,
+                null
+            );
+        }
+    });
+
+    function saveMilestone(title, date, description, photo) {
+        const newMilestone = {
+            title: title,
+            date: date,
+            description: description,
+            photo: photo
+        };
+
+        milestones.push(newMilestone);
+
+        localStorage.setItem(
+            "milestones",
+            JSON.stringify(milestones)
+        );
+
+        displayMilestones();
+
+        milestoneForm.reset();
+    }
+
+    // Display saved milestones immediately
+    displayMilestones();
+</script>
 
 </body>
 </html>
